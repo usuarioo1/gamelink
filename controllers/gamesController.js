@@ -13,4 +13,14 @@ const getGames = async (req, res) => {
   }
 };
 
-module.exports = getGames;
+const createProduct = async (req, res) => {
+  try {
+    const newProduct = new Product(req.body);
+    await newProduct.save();
+    res.json({ succes: true, message: "producto creado", info: newProduct });
+  } catch (error) {
+    res.status(500).json({ succees: false, messagee: error.message });
+  }
+};
+
+module.exports = { getGames, createProduct };

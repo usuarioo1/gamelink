@@ -1,8 +1,8 @@
 const mongoose = require("mongoose");
 
 const gameSchema = new mongoose.Schema({
-  nombre: String,
-  precio: Number,
+  nombre: { type: String, require: true },
+  precio: { type: Number, require: true, min: 0, max: 1000000 },
   img: String,
 });
 
