@@ -5,7 +5,9 @@ const loginRegister = async (req, res) => {
     const newUser = new User(req.body);
     await newUser.save();
 
-    res.json({ succes: true, message: "usuario creado", info: newUser });
+    res
+      .status(200)
+      .json({ succes: true, message: "usuario creado", info: newUser });
   } catch (error) {
     console.error(error);
     res.status(500).send("Error en el servidor");
@@ -15,9 +17,13 @@ const loginRegister = async (req, res) => {
 const getUser = async (req, res) => {
   try {
     const users = await User.find();
-    res.json({ success: true, info: users });
+    res.status(200).json({
+      message: "esta es tu lista de usuarios",
+      success: true,
+      info: users,
+    });
   } catch (error) {
-    res.json({ succes: false, message: error.message });
+    res.status(500).json({ succes: false, message: error.message });
   }
 };
 
@@ -44,4 +50,11 @@ const deleteUser = async (req, res) => {
   }
 };
 
+// const loginUser = (req, res) => {
+//   try {
+//     const {email,password} = req.body //saco la info de un usuario que me llegara, del body
+//   } catch (error) {
+//     res.status(500).json({ succes: false, message: error.message });
+//   }
+// };
 module.exports = { loginRegister, getUser, editUser, deleteUser };

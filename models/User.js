@@ -12,10 +12,13 @@ const userSchema = new mongoose.Schema({
     type: String,
     trim: true,
     required: true,
-    //agrgegar regex
+    match: [
+      /[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/g,
+    ],
   },
   password: {
     type: String,
+    match: [/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/gm],
     required: true,
   },
   isAdmin: {
