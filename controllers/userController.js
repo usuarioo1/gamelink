@@ -50,11 +50,26 @@ const deleteUser = async (req, res) => {
   }
 };
 
-// const loginUser = (req, res) => {
-//   try {
-//     const {email,password} = req.body //saco la info de un usuario que me llegara, del body
-//   } catch (error) {
-//     res.status(500).json({ succes: false, message: error.message });
-//   }
-// };
-module.exports = { loginRegister, getUser, editUser, deleteUser };
+const loginUser = async (req, res) => {
+  try {
+    const { mail, password } = req.body; //saco la info de un usuario que me llegara, del body
+    const user = await User.findOne({ mail }); //buscando email en bbdd mongodb
+    const pass = user.password;
+    if (!user) {
+      throw new Error("usuario no existe");
+    } else if (pass != password) {
+      //valida la contraseña del usuario
+      throw new Error("contraseña incorrecta, vuelve a a intentarlo");
+    }
+    res.json({
+      succes: true,
+      message: "ingreso con exito",
+      name,
+      mail,
+      password,
+    });
+  } catch (error) {
+    res.status(500).json({ succes: false, message: error.message });
+  }
+};
+module.exports = { loginRegister, getUser, editUser, deleteUser, loginUser };
