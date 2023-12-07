@@ -55,6 +55,7 @@ const loginUser = async (req, res) => {
     const { mail, password } = req.body; //saco la info de un usuario que me llegara, del body
     const user = await User.findOne({ mail }); //buscando email en bbdd mongodb
     const pass = user.password;
+
     if (!user) {
       throw new Error("usuario no existe");
     } else if (pass != password) {
@@ -64,9 +65,7 @@ const loginUser = async (req, res) => {
     res.json({
       succes: true,
       message: "ingreso con exito",
-      name,
-      mail,
-      password,
+      token: user.generadorDeToken(),
     });
   } catch (error) {
     res.status(500).json({ succes: false, message: error.message });

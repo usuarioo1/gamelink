@@ -1,4 +1,5 @@
 const mongoose = require("mongoose");
+const jwt = require("jsonwebtoken");
 
 const userSchema = new mongoose.Schema({
   name: {
@@ -26,6 +27,16 @@ const userSchema = new mongoose.Schema({
     default: false,
   },
 });
+
+userSchema.methods.generadorDeToken = function () {
+  const payload = {
+    id: this._id,
+    name: this.name,
+    password: this.password, //eliminar pass de la funcion, solo es de prueba
+  };
+  const token = jwt.sign(payload, process.env.SECWORD, { expiresIn: 900 });
+  return token;
+};
 
 const User = mongoose.model("users", userSchema);
 
