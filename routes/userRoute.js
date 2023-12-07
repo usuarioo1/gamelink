@@ -11,7 +11,7 @@ const auth  = require("../middleware/auth");
 
 const userRouter = express.Router();
 
-userRouter.route("/users").post(loginRegister).get(auth,getUser);
+userRouter.route("/users").post(loginRegister).get(auth, getUser);
 
 userRouter.route("/users/:id").put(editUser).delete(deleteUser);
 

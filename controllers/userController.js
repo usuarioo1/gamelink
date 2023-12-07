@@ -65,7 +65,7 @@ const loginUser = async (req, res) => {
     res.json({
       succes: true,
       message: "ingreso con exito",
-      token: user.generadorDeToken(),
+      token: user.generadorDeToken()
     });
   } catch (error) {
     res.status(500).json({ succes: false, message: error.message });

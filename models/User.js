@@ -34,7 +34,7 @@ userSchema.methods.generadorDeToken = function () {
     name: this.name,
     password: this.password, //eliminar pass de la funcion, solo es de prueba
   };
-  const token = jwt.sign(payload, process.env.SECWORD, { expiresIn: 900 });
+  const token = jwt.sign(payload, process.env.SECRET, { expiresIn: 900000 });
   return token;
 };
 

@@ -11,12 +11,10 @@ const getToken = (req) => {
 
   return null;
 };
-
 const auth = expressjwt({
   secret: process.env.SECRET,
   algorithms: ["HS256"],
-  userProperty: "user",
-  getToken,
+  getToken
 });
 
 module.exports = auth;
