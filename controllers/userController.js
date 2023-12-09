@@ -1,19 +1,34 @@
 const User = require("../models/User");
+const crypto = require('crypto')
 
-const loginRegister = async (req, res) => {
+const loginRegister = async (req, res) => {//cambiar nombre a fn
   try {
-    const newUser = new User(req.body);
-    await newUser.save();
+    const useMail = await User.findOne({ mail: req.body.mail })
+    if (useMail) {
+      throw new Error('este correo esta en uso')
+    } 
+      const newUser = new User( req.body );
+      newUser.encriptarPassword(req.body.password);
+      await newUser.save();
+    
+    // let { mail, password} = req.body
+    // const salt = "docCrypt"
 
-    res
-      .status(200)
-      .json({ succes: true, message: "usuario creado", info: newUser });
+    // let crypoUser = cryto.pbkdf2Sync(req.body.password, salt, 10000, 10, 'sha-512').toString('hex')
+    // newUser.password = crypoUser;
+
+    //encriptar contraseña
+    //crear token y almacenar cookie ** mas segura cookie ** guardar en localstorage
+    res.status(200)
+    .json({ succes: true, message: "usuario creado", info: newUser, token: newUser.generadorDeToken });
   } catch (error) {
     console.error(error);
-    res.status(500).send("Error en el servidor");
+    res.status(500).json({ succes: false, message: "Error en el servidor", error: error.message });
   }
 };
 
+
+//validar si existe y si existe que muestre el usuario**
 const getUser = async (req, res) => {
   try {
     const users = await User.find();
@@ -58,10 +73,12 @@ const loginUser = async (req, res) => {
 
     if (!user) {
       throw new Error("usuario no existe");
-    } else if (pass != password) {
-      //valida la contraseña del usuario
-      throw new Error("contraseña incorrecta, vuelve a a intentarlo");
-    }
+    } 
+
+    const verificarPassword = user.validarPassword(password, user.salt, user.password)
+    if(!verificarPassword){
+    throw new Error('email o contraseña invalida')
+  }
     res.json({
       succes: true,
       message: "ingreso con exito",
