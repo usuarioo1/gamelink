@@ -77,7 +77,7 @@ const loginUser = async (req, res) => {
 
     const verificarPassword = user.validarPassword(password, user.salt, user.password)
     if(!verificarPassword){
-    throw new Error('email o contraseña invalida')
+    throw new Error('email o contraseña invalida, verificar por favor')
   }
     res.json({
       succes: true,
