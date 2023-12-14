@@ -20,8 +20,9 @@ const userSchema = new mongoose.Schema({
   },
   password: {
     type: String,
-    match: [/^(?=.*\d)(?=.*[a-z])(?=.*[a-zA-Z]).{8,}$/gm
-  ], // [/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/gm] este era el antigua que basicamente admitia letras mayusculas, fue cambiado ya que la encriptacion en hexadecimar solo arrojaba letras y numeros, pero no maysculas 
+    match: 
+     [/^(?=.*\d)(?=.*[a-z])(?=.*[a-zA-Z]).{8,}$/gm], 
+     //[/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/gm], //este era el antigua que basicamente admitia letras mayusculas, fue cambiado ya que la encriptacion en hexadecimar solo arrojaba letras y numeros, pero no maysculas 
     required: true,
   },
   salt:String,

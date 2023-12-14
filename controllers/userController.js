@@ -6,11 +6,12 @@ const loginRegister = async (req, res) => {//cambiar nombre a fn
     const useMail = await User.findOne({ mail: req.body.mail })
     if (useMail) {
       throw new Error('este correo esta en uso')
-    } 
-      const newUser = new User( req.body );
-      newUser.encriptarPassword(req.body.password);
-      await newUser.save();
-    
+    }
+    const newUser = new User(req.body);
+    newUser.encriptarPassword(req.body.password);
+    await newUser.save();
+
+
     // let { mail, password} = req.body
     // const salt = "docCrypt"
 
@@ -20,7 +21,7 @@ const loginRegister = async (req, res) => {//cambiar nombre a fn
     //encriptar contraseña
     //crear token y almacenar cookie ** mas segura cookie ** guardar en localstorage
     res.status(200)
-    .json({ succes: true, message: "usuario creado", info: newUser, token: newUser.generadorDeToken });
+      .json({ succes: true, message: "usuario creado", info: newUser, token: newUser.generadorDeToken });
   } catch (error) {
     console.error(error);
     res.status(500).json({ succes: false, message: "Error en el servidor", error: error.message });
@@ -73,12 +74,12 @@ const loginUser = async (req, res) => {
 
     if (!user) {
       throw new Error("usuario no existe");
-    } 
+    }
 
     const verificarPassword = user.validarPassword(password, user.salt, user.password)
-    if(!verificarPassword){
-    throw new Error('email o contraseña invalida, verificar por favor')
-  }
+    if (!verificarPassword) {
+      throw new Error('email o contraseña invalida, verificar por favor')
+    }
     res.json({
       succes: true,
       message: "ingreso con exito",
