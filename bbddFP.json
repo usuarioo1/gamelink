@@ -1,0 +1,44 @@
+[
+    {
+        "nombre": "Funko pop Profe Paulo Llanos",
+        "valor": 8990,
+        "descripcion":"Profe Paulo",
+        "img": ""
+    },
+    {
+        "nombre": "Funko pop Naruto",
+        "valor": 10990,
+        "descripcion": "Figura coleccionable del popular personaje Naruto Uzumaki.",
+        "img": ""
+    },
+    {
+        "nombre": "Funko pop Shingeki no kiyojin",
+        "valor": 12990,
+        "descripcion": "Figura del anime 'Attack on Titan' que representa a los personajes enfrentando a los titanes.",
+        "img": ""
+    },
+    {
+        "nombre": "Funko pop Zoro",
+        "valor": 9990,
+        "descripcion": "Figura del espadachín Roronoa Zoro del anime 'One Piece'.",
+        "img": ""
+    },
+    {
+        "nombre": "Funko pop Monkey Luffy",
+        "valor": 13990,
+        "descripcion": "Figura del personaje principal Monkey D. Luffy con su característico sombrero de paja.",
+        "img": ""
+    },
+    {
+        "nombre": "Funko pop Saitama",
+        "valor": 11990,
+        "descripcion": "Figura del superhéroe 'One Punch Man', Saitama, conocido por derrotar a sus enemigos de un solo golpe.",
+        "img": ""
+    },
+    {
+        "nombre": "Funko pop Iron Man",
+        "valor": 14990,
+        "descripcion": "Figura del famoso superhéroe de Marvel, Iron Man, con su icónica armadura roja y dorada.",
+        "img": ""
+    }
+]

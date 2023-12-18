@@ -20,28 +20,28 @@ const userSchema = new mongoose.Schema({
   },
   password: {
     type: String,
-    match: 
-     [/^(?=.*\d)(?=.*[a-z])(?=.*[a-zA-Z]).{8,}$/gm], 
-     //[/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/gm], //este era el antigua que basicamente admitia letras mayusculas, fue cambiado ya que la encriptacion en hexadecimar solo arrojaba letras y numeros, pero no maysculas 
+    match:
+      [/^(?=.*\d)(?=.*[a-z])(?=.*[a-zA-Z]).{8,}$/gm],
+    //[/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/gm], //este era el antigua que basicamente admitia letras mayusculas, fue cambiado ya que la encriptacion en hexadecimar solo arrojaba letras y numeros, pero no maysculas 
     required: true,
   },
-  salt:String,
+  salt: String,
   isAdmin: {
     type: Boolean,
     default: false,
   },
 });
 
-userSchema.methods.encriptarPassword = function(password){
+userSchema.methods.encriptarPassword = function (password) {
   this.salt = crypto.randomBytes(10).toString(`hex`)
-  this.password = crypto.pbkdf2Sync(password, this.salt, 10000, 10, 'sha-512').toString('hex') 
+  this.password = crypto.pbkdf2Sync(password, this.salt, 10000, 10, 'sha-512').toString('hex')
 }
 
-userSchema.methods.validarPassword = function(password,salt,passwordDB){
+userSchema.methods.validarPassword = function (password, salt, passwordDB) {
 
-  const encriptar = crypto.pbkdf2Sync(password, salt, 10000, 10, 'sha-512').toString('hex') 
+  const encriptar = crypto.pbkdf2Sync(password, salt, 10000, 10, 'sha-512').toString('hex')
   return encriptar === passwordDB
-  
+
 }
 
 userSchema.methods.generadorDeToken = function () {

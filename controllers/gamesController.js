@@ -4,7 +4,7 @@ const getGames = async (req, res) => {
   try {
     const games = await Games.find();
     res.json({
-      succees: true,
+      success: true,
       message: "lista de juegos",
       info: games,
     });
