@@ -17,5 +17,5 @@ const auth = expressjwt({
   algorithms: ["HS256"],
   getToken
 });
-
+  
 module.exports = auth;

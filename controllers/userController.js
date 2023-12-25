@@ -43,6 +43,17 @@ const getUser = async (req, res) => {
   }
 };
 
+const getProfile = async(req,res) => {
+  try {
+    const {id} = req.params;
+    const getInfouser = await User.findById(id).select('-password -salt')
+    res.json({success: true,
+      info: getInfouser})
+  } catch (error) {
+    res.status(500).json({ succes: false, message: error.message });
+  }
+}
+
 const editUser = async (req, res) => {
   try {
     const { id } = req.params;
@@ -78,7 +89,7 @@ const loginUser = async (req, res) => {
 
     const verificarPassword = user.validarPassword(password, user.salt, user.password)
     if (!verificarPassword) {
-      throw new Error('email o contraseña invalida, verificar por favor')
+      throw new Error('email o contraseña invalidos, verificar por favor')
     }
     res.json({
       succes: true,
@@ -89,4 +100,4 @@ const loginUser = async (req, res) => {
     res.status(500).json({ succes: false, message: error.message });
   }
 };
-module.exports = { loginRegister, getUser, editUser, deleteUser, loginUser };
+module.exports = { loginRegister, getUser, editUser, deleteUser, loginUser, getProfile };
