@@ -7,7 +7,7 @@ const loginRegister = async (req, res) => {//cambiar nombre a fn
     if (useMail) {
       throw new Error('este correo esta en uso')
     }
-    const newUser = new User(req.body);
+    const newUser = new User(req.body); //crea un usuario con los valores que pase
     newUser.encriptarPassword(req.body.password);
     await newUser.save();
 
@@ -100,4 +100,15 @@ const loginUser = async (req, res) => {
     res.status(500).json({ succes: false, message: error.message });
   }
 };
-module.exports = { loginRegister, getUser, editUser, deleteUser, loginUser, getProfile };
+
+const getVerifyUser = async(req,res) => {
+  try {
+    const {id} = req.auth;
+    const getInfouser = await User.findById(id).select('-password -salt')
+    res.json({success: true,
+      info: getInfouser})
+  } catch (error) {
+    res.status(500).json({ succes: false, message: error.message });
+  }
+}
+module.exports = { loginRegister, getUser, editUser, deleteUser, loginUser, getProfile, getVerifyUser };

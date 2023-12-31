@@ -32,6 +32,8 @@ const userSchema = new mongoose.Schema({
   },
 });
 
+//ver la posibilidad de agregar el rol//
+
 userSchema.methods.encriptarPassword = function (password) {
   this.salt = crypto.randomBytes(10).toString(`hex`)
   this.password = crypto.pbkdf2Sync(password, this.salt, 10000, 10, 'sha-512').toString('hex')

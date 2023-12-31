@@ -4,6 +4,7 @@ const testbbdd = require("./config/database");
 const userRouter = require("./routes/userRoute");
 const funkoRoute = require("./routes/funkoRoute");
 require("dotenv").config(); // para importar variables de entorno
+const cors = require('cors')
 
 // Traer MongoDB al servidor
 //require("./config/database");
@@ -12,9 +13,10 @@ require("dotenv").config(); // para importar variables de entorno
 const app = express();
 testbbdd();
 
-// MIDDLEWARE
+
 
 // Para que el servidor entienda JSON
+app.use(cors()) // de esta manera se admiten todos los dominios
 app.use(express.json());
 app.use(gamesRouter); // Ruta en el servidor
 app.use(userRouter);

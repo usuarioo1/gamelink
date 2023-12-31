@@ -5,7 +5,8 @@ const {
   deleteUser,
   getUser,
   loginUser,
-  getProfile
+  getProfile,
+  getVerifyUser
 } = require("../controllers/userController");
 
 const auth  = require("../middleware/auth");
@@ -17,5 +18,7 @@ userRouter.route("/users").post(loginRegister).get( getUser);
 userRouter.route("/users/:id").put(editUser).delete(deleteUser).get(getProfile);
 
 userRouter.route("/login").post(loginUser);
+
+userRouter.route('verifyUser').get(getVerifyUser)
 
 module.exports = userRouter;

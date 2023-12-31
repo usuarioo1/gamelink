@@ -18,7 +18,7 @@ const getGamesById = async(req,res) => {
   try {
     const {id} = req.params;
     const product = await Games.findById(id);
-    res.json({success:true, message: 'producto solciitado', product})
+    res.json({success:true, message: 'producto solcitado', product})
   } catch (error) {
     res.status(500).json({success:false, message: 'producto no encontrado'})
   }
@@ -56,6 +56,7 @@ const deleteGame = async(req,res) => {
     res.status(500).json({success:false, message: error.message})
   }
 }
+
 
 const reduceStock = async(req,res) => {
   const gamePurchased = req.body.cartItems;
