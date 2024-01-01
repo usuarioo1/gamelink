@@ -18,7 +18,7 @@ const getGamesById = async(req,res) => {
   try {
     const {id} = req.params;
     const product = await Games.findById(id);
-    res.json({success:true, message: 'producto solcitado', product})
+    res.json({success:true, message: 'producto solcitado', product}) // desde acá estoy sacando mi product del front
   } catch (error) {
     res.status(500).json({success:false, message: 'producto no encontrado'})
   }
