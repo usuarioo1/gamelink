@@ -1,44 +1,75 @@
 [
+    
     {
-        "nombre": "Funko pop Profe Paulo Llanos",
-        "valor": 8990,
-        "descripcion":"Profe Paulo",
-        "img": ""
-    },
-    {
-        "nombre": "Funko pop Naruto",
-        "valor": 10990,
-        "descripcion": "Figura coleccionable del popular personaje Naruto Uzumaki.",
-        "img": ""
-    },
-    {
-        "nombre": "Funko pop Shingeki no kiyojin",
-        "valor": 12990,
-        "descripcion": "Figura del anime 'Attack on Titan' que representa a los personajes enfrentando a los titanes.",
-        "img": ""
-    },
-    {
-        "nombre": "Funko pop Zoro",
-        "valor": 9990,
-        "descripcion": "Figura del espadachín Roronoa Zoro del anime 'One Piece'.",
-        "img": ""
-    },
-    {
-        "nombre": "Funko pop Monkey Luffy",
-        "valor": 13990,
-        "descripcion": "Figura del personaje principal Monkey D. Luffy con su característico sombrero de paja.",
-        "img": ""
-    },
-    {
-        "nombre": "Funko pop Saitama",
+        "nombre": "Funko pop DarkVader",
         "valor": 11990,
-        "descripcion": "Figura del superhéroe 'One Punch Man', Saitama, conocido por derrotar a sus enemigos de un solo golpe.",
+        "descripcion": "Figura del icónico villano Darth Vader de Star Wars.",
         "img": ""
     },
     {
-        "nombre": "Funko pop Iron Man",
-        "valor": 14990,
-        "descripcion": "Figura del famoso superhéroe de Marvel, Iron Man, con su icónica armadura roja y dorada.",
+        "nombre": "Funko pop Marty McFly",
+        "valor": 10990,
+        "descripcion": "Figura del protagonista Marty McFly de la película 'Back to the Future'.",
+        "img": ""
+    },
+    {
+        "nombre": "Funko pop El Joker",
+        "valor": 9990,
+        "descripcion": "Figura del villano Joker, archienemigo de Batman en el universo de DC Comics.",
+        "img": ""
+    },
+    {
+        "nombre": "Funko pop Capitan America",
+        "valor": 12990,
+        "descripcion": "Figura del superhéroe Capitán América, miembro de los Vengadores de Marvel.",
+        "img": ""
+    },
+    {
+        "nombre": "Funko pop Heman",
+        "valor": 11990,
+        "descripcion": "Figura del poderoso guerrero He-Man, protagonista de la serie de animación 'Masters of the Universe'.",
+        "img": ""
+    },
+    {
+        "nombre": "Funko pop Doctor Strange",
+        "valor": 8990,
+        "descripcion": "Figura del hechicero Doctor Strange, maestro de las artes místicas en el universo Marvel.",
+        "img": ""
+    },
+    {
+        "nombre": "Funko pop Paulo M.Llanos",
+        "valor": 12990,
+        "descripcion": "Figura del genial y carismático profesor Paulo M. Llanos.",
+        "img": ""
+    },
+    {
+        "nombre": "Funko pop DeadPool",
+        "valor": 10990,
+        "descripcion": "Figura del irreverente y mercenario DeadPool de Marvel.",
+        "img": ""
+    },
+    {
+        "nombre": "Funko pop Obi-Wan Kenobi",
+        "valor": 9990,
+        "descripcion": "Figura del legendario Jedi Obi-Wan Kenobi de Star Wars.",
+        "img": ""
+    },
+    {
+        "nombre": "Funko pop Williy Wonka",
+        "valor": 11990,
+        "descripcion": "Figura del excéntrico Willy Wonka de la película 'Charlie and the Chocolate Factory'.",
+        "img": ""
+    },
+    {
+        "nombre": "Funko pop Forrest Gump",
+        "valor": 12990,
+        "descripcion": "Figura del icónico personaje Forrest Gump, interpretado por Tom Hanks.",
+        "img": ""
+    },
+    {
+        "nombre": "Funko pop Nami",
+        "valor": 8990,
+        "descripcion": "Figura de la navegante Nami, miembro de la tripulación de los Piratas del Sombrero de Paja en 'One Piece'.",
         "img": ""
     }
 ]
