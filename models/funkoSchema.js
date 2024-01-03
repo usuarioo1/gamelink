@@ -8,6 +8,6 @@ const funkoSchema = new mongoose.Schema({
     
 });
 
-const Funkos = mongoose.model("funkoPops", funkoSchema);
+const Funkos = mongoose.model("funkopops", funkoSchema);
 
 module.exports = Funkos;
