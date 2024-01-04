@@ -9,7 +9,7 @@ const getFunko = async(req,res) => {
             info: funkos,
         })
     } catch (error) {
-        res.json({ succes: false, message: "info no encontrada" });
+        res.status(500)json({ succes: false, message: "info no encontrada" });
         console.error(error)
     }
 }
