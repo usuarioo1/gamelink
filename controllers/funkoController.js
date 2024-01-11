@@ -9,7 +9,7 @@ const getFunko = async(req,res) => {
             info: funkos,
         })
     } catch (error) {
-        res.status(500)json({ succes: false, message: "info no encontrada" });
+        res.status(500).json({ succes: false, message: "info no encontrada" });
         console.error(error)
     }
 }
@@ -18,8 +18,8 @@ const getFunkoById = async(req, res) => {
 
     try {
         const {id} = req.params;
-        const product = await Funkos.findById(id);
-        res.json({success:true, message: 'producto solcitado', product})
+        const funko = await Funkos.findById(id);
+        res.json({success:true, message: 'producto solcitado', funko})
     } catch (error) {
         res.status(500).json({success:false, message: 'producto no encontrado'})
     }
