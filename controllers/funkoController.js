@@ -19,7 +19,7 @@ const getFunkoById = async(req, res) => {
     try {
         const {id} = req.params;
         const funko = await Funkos.findById(id);
-        res.json({success:true, message: 'producto solcitado', funko})
+        res.json({success:true, message: 'producto solcitado', funko})  //raiz del data//
     } catch (error) {
         res.status(500).json({success:false, message: 'producto no encontrado'})
     }
