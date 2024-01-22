@@ -3,6 +3,7 @@ const gamesRouter = require("./routes/gamesRoute");
 const testbbdd = require("./config/database");
 const userRouter = require("./routes/userRoute");
 const funkoRoute = require("./routes/funkoRoute");
+const supportRoute = require("./routes/supportRoute")
 require("dotenv").config(); // para importar variables de entorno
 const cors = require('cors')
 
@@ -21,6 +22,8 @@ app.use(express.json());
 app.use(gamesRouter); // Ruta en el servidor
 app.use(userRouter);
 app.use(funkoRoute);
+app.use(supportRoute);
+
 
 // Levantamiento del servidor
 app.listen(process.env.PORT, () => {

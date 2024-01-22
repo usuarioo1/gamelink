@@ -20,7 +20,7 @@ const loginRegister = async (req, res) => {//cambiar nombre a fn
 
     //encriptar contraseña
     //crear token y almacenar cookie ** mas segura cookie ** guardar en localstorage
-    res.status(200)
+    res.status(201)
       .json({ succes: true, message: "usuario creado", info: newUser, token: newUser.generadorDeToken });
   } catch (error) {
     console.error(error);

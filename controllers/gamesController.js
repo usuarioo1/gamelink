@@ -9,7 +9,7 @@ const getGames = async (req, res) => {
       info: games,
     });
   } catch (error) {
-    res.status(500).json({ succes: false, message: "info no encontrada, error en el servidor" });
+    res.status(500).json({ success: false, message: "info no encontrada, error en el servidor" });
   }
 };
 
