@@ -21,7 +21,7 @@ const loginRegister = async (req, res) => {//cambiar nombre a fn
     //encriptar contraseña
     //crear token y almacenar cookie ** mas segura cookie ** guardar en localstorage
     res.status(201)
-      .json({ succes: true, message: "usuario creado", info: newUser, token: newUser.generadorDeToken });
+      .json({ succes: true, message: "usuario creado, ahora puedes iniciar sesión", info: newUser, token: newUser.generadorDeToken });
   } catch (error) {
     console.error(error);
     res.status(500).json({ succes: false, message: "Error en el servidor", error: error.message });
@@ -93,7 +93,7 @@ const loginUser = async (req, res) => {
     }
     res.json({
       succes: true,
-      message: "ingreso con exito",
+      message: "ingreso con éxito",
       token: user.generadorDeToken()
     });
   } catch (error) {
